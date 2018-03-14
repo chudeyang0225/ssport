@@ -5,8 +5,8 @@ aport()
 PORT=$1;
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport $PORT -j ACCEPT;
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport $PORT -j ACCEPT;
-iptables -I OUTPUT -s 127.0.0.1 -p tcp --sport $PORT;
-iptables -I OUTPUT -s 127.0.0.1 -p udp --sport $PORT;
+iptables -I OUTPUT -p tcp --sport $PORT;
+iptables -I OUTPUT -p udp --sport $PORT;
 /etc/init.d/iptables save;
 /etc/init.d/iptables restart;
 }
@@ -16,8 +16,8 @@ dport()
 PORT=$1;
 iptables -D INPUT -m state --state NEW -m tcp -p tcp --dport $PORT -j ACCEPT;
 iptables -D INPUT -m state --state NEW -m udp -p udp --dport $PORT -j ACCEPT;
-iptables -D OUTPUT -s 127.0.0.1 -p tcp --sport $PORT;
-iptables -D OUTPUT -s 127.0.0.1 -p udp --sport $PORT;
+iptables -D OUTPUT -p tcp --sport $PORT;
+iptables -D OUTPUT -p udp --sport $PORT;
 /etc/init.d/iptables save;
 /etc/init.d/iptables restart;
 }
