@@ -52,7 +52,7 @@ if grep -Fwq "$PORT" logcsv.sh;then
 echo "Port Already Exists!"
 else
 sed -i '4i\
-traffic'$PORT'=$(/sbin/iptables -n -v -L -t filter -x|grep -i '\''spt:'$PORT''\'' |awk -F'\'' '\'' '\''{print $2}'\'');
+traffic'$PORT'=$(/sbin/iptables -n -v -L -t filter -x|grep -i '\''tcp spt:'$PORT''\'' |awk -F'\'' '\'' '\''{print $2}'\'');
 ' logcsv.sh
 echo 'echo $datetime,$traffic'$PORT' >> /portlog/'$PORT'.csv' >> logcsv.sh
 echo "Add log port '$PORT' Success!"
