@@ -94,6 +94,12 @@ a)
 d) 
 	activity="dport"
 	PORT=${OPTARG};;
+m)
+        activity="monitor"
+        PORT=${OPTARG};;
+n)
+        activity="unmonitor"
+        PORT=${OPTARG};;
 c)
         activity="acron"
         INTERVAL=${OPTARG};;
@@ -106,10 +112,12 @@ esac
 done
 
 if [ $activity = "aport" ];then
-aport $PORT
+aport $PORT;
+elif [ $activity = "monitor" ];then
 alogport $PORT;
 elif [ $activity = "dport" ];then
-dport $PORT
+dport $PORT;
+elif [ $activity = "unmonitor" ];then
 dlogport $PORT;
 elif [ $activity = "acron" ];then
 acron $INTERVAL;
