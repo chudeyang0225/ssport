@@ -84,7 +84,7 @@ echo "Crontab deleted successfully!"
 }
 
 
-while getopts a:d:c:ps option
+while getopts a:d:m:n:c:ps option
 do
 case "${option}"
 in
