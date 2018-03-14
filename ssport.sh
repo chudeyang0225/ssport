@@ -26,7 +26,7 @@ createcronfile()
 {
 cat > logcsv.sh << EOF
 #!/bin/sh
-
+mkdir -p /portlog
 datetime=\$(date '+%Y-%m-%d %H:%M:%S');
 /sbin/iptables -Z
 EOF
@@ -39,12 +39,6 @@ alogport()
 {
 if [ ! -f "logcsv.sh" ];
 then createcronfile;
-#cat > logcsv.sh << EOF
-#datetime=\$(date '+%Y-%m-%d %H:%M:%S');
-#/sbin/iptables -Z
-#EOF
-
-#chmod +x logcsv.sh
 fi;
 
 PORT=$1;
