@@ -26,7 +26,7 @@ createcronfile()
 {
 cat > logcsv.sh << EOF
 #!/bin/sh
-mkdir -p /portlog
+#mkdir -p /portlog
 timestamp=\$(date +%s);
 /sbin/iptables -Z
 EOF
