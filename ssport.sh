@@ -48,7 +48,7 @@ else
 sed -i '4i\
 traffic'$PORT'=$(/sbin/iptables -n -v -L -t filter -x|grep -i '\''tcp spt:'$PORT''\'' |awk -F'\'' '\'' '\''{print $2}'\'');
 ' logcsv.sh
-echo 'echo $timestamp,$traffic'$PORT','$PORT' >> /portlog.csv' >> logcsv.sh
+echo 'echo $timestamp,'$PORT',$traffic'$PORT' >> /portlog.csv' >> logcsv.sh
 echo "Add log port '$PORT' Success!"
 fi
 }
