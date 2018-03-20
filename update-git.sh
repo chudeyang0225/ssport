@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel -y
 yum install gcc perl-ExtUtils-MakeMaker -y
 yum remove git
@@ -11,3 +11,5 @@ echo "export PATH=$PATH:/usr/local/git/bin" >> /etc/profile
 source /etc/profile
 git config --global http.sslversion tlsv1
 cd .. && rm -rf git-2.7*
+echo "升级完成，请执行 source /etc/profile"
+
