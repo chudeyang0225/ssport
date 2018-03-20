@@ -34,4 +34,5 @@ else
 fi
 rm -rf /usr/bin/pip
 ln -s /usr/local/python2.7.12/bin/pip2.7 /usr/bin/pip
-
+rm -rf Python-2.7*
+sed -i '1 s/$/2.6.6/' /usr/bin/yum
