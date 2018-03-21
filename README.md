@@ -15,8 +15,8 @@ Flags: (One flag at a time)
 -p: Check iptables for opened port in list.  
 
 # push2google.py
-Fill in the script url into the file and run by 'python push2google.py'. Cronjob recommended.  
-In google sheets paste the script:
+Fill in the script url into the file and run by 'python push2google.py'. Cronjob recommended. Maximum row limited to 200000 
+Rename the target sheet to 'Raw', In google sheets paste the script:
 ```JavaScript
 function appendLines(worksheet, csvData) {
   var ss = SpreadsheetApp.openById("ONLINE.FILE.ID.CODE");
