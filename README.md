@@ -12,10 +12,10 @@ Flags: (One flag at a time)
 -n (portnum): Delete port from the monitor list.  
 -c (min): Start monitoring task, logs data every (min)minutes.  
 -s: Stop monitoring task.  
--p: Check iptabls for port in list.  
+-p: Check iptables for opened port in list.  
 
 # push2google.py
-Fill in the script url into the file and run by 'python push2google.py'. Cronjob recommended.
+Fill in the script url into the file and run by 'python push2google.py'. Cronjob recommended.  
 In google sheets paste the script:
 ```JavaScript
 function appendLines(worksheet, csvData) {
