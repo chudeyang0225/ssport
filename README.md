@@ -17,7 +17,7 @@ Flags: (One flag at a time)
 # push2google.py
 Fill in the script url into the file and run by 'python push2google.py'. Cronjob recommended.
 In google sheets paste the script:
-```
+```JavaScript
 function appendLines(worksheet, csvData) {
   var ss = SpreadsheetApp.openById("ONLINE.FILE.ID.CODE");
   var sheet = ss.getSheetByName(worksheet);
