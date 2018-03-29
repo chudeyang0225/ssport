@@ -78,7 +78,7 @@ echo "Crontab added successfully!"
 dcron()
 {
 cwd=$(pwd)
-crontab -l | grep -v '$cwd/logcsv.sh'  | crontab -
+crontab -l | grep -v 'logcsv.sh'  | crontab -
 service crond restart
 echo "Crontab deleted successfully!"
 }
