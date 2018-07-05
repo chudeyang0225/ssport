@@ -83,17 +83,32 @@ service crond restart
 echo "Crontab deleted successfully!"
 }
 
+showhelp()
+{
+echo "
+USAGE:
+-a (portnum): Open port
+-d (portnum): Close port
+-m (portnum): Add port to the monitor list.
+-n (portnum): Delete port from the monitor list.
+-c (min): Start monitoring task, logs data every (min)minutes.
+-s: Stop monitoring task.
+-l: Check iptables for opened port in list.
+-h: Show this help message.
+"
+}
 
-while getopts a:d:m:n:c:ps option
+
+while getopts a:d:m:n:c:lhs option
 do
 case "${option}"
 in
-a) 
-	activity="aport"
-	PORT=${OPTARG};;
-d) 
-	activity="dport"
-	PORT=${OPTARG};;
+a)
+        activity="aport"
+        PORT=${OPTARG};;
+d)
+        activity="dport"
+        PORT=${OPTARG};;
 m)
         activity="monitor"
         PORT=${OPTARG};;
@@ -105,8 +120,10 @@ c)
         INTERVAL=${OPTARG};;
 s)
         activity="dcron";;
-p)
-	activity="checkiptable";;
+l)
+        activity="checkiptable";;
+h)
+        activity="showhelp";;
 
 esac
 done
@@ -123,8 +140,11 @@ elif [ $activity = "acron" ];then
 acron $INTERVAL;
 elif [ $activity = "dcron" ];then
 dcron;
+elif [ $activity = "showhelp" ];then
+showhelp;
 elif [ $activity = "checkiptable" ];then
 iptables -vnL;
 else
 echo "Input error!"
 fi
+
