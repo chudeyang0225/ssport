@@ -7,8 +7,8 @@ iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport $PORT -j ACCEPT;
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport $PORT -j ACCEPT;
 iptables -I OUTPUT -p tcp --sport $PORT;
 iptables -I OUTPUT -p udp --sport $PORT;
-/etc/init.d/iptables save;
-/etc/init.d/iptables restart;
+service iptables save;
+service iptables restart;
 }
 
 dport()
@@ -18,8 +18,8 @@ iptables -D INPUT -m state --state NEW -m tcp -p tcp --dport $PORT -j ACCEPT;
 iptables -D INPUT -m state --state NEW -m udp -p udp --dport $PORT -j ACCEPT;
 iptables -D OUTPUT -p tcp --sport $PORT;
 iptables -D OUTPUT -p udp --sport $PORT;
-/etc/init.d/iptables save;
-/etc/init.d/iptables restart;
+service iptables save;
+service iptables restart;
 }
 
 createcronfile()

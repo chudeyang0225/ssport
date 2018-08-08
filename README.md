@@ -1,6 +1,6 @@
 # ssport
-Port open/close and data traffic log option for centos 6.   
-ONLY TESTED UNDER CENTOS 6! OTHER OS NOT GUARANTEED!  
+iptables port open/close and data traffic log option for centos.   
+ONLY TESTED UNDER CENTOS 6 and 7 with iptables service! OTHER OS NOT GUARANTEED!  
 Automatically creates a script 'logcsv.sh' which functions as traffic logger. Cronjob can call this scipt to log data. Manually running it is also possible.  
 Log data is saved in '/portlog.csv' with 3 columns: (Timestamp in Unix format), port and (Traffic since last log in bytes)  
 
